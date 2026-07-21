@@ -50,7 +50,7 @@
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1440px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -82,9 +82,9 @@
       color: var(--accent);
     }
 
-    /* Main Container */
+    /* Main Container (Expanded to 1440px for larger maps) */
     .showcase-container {
-      max-width: 1200px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }
@@ -116,13 +116,11 @@
     }
 
     .headshot {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      width: 200px;
+      height: 280px;
       object-fit: cover;
-      border: 4px solid var(--accent-light);
       box-shadow: var(--shadow-sm);
-      background-color: var(--bg-color);
+      border-radius: 8px;
     }
 
     .intro-content {
@@ -183,7 +181,7 @@
       margin: 0 auto;
     }
 
-    /* Alternating Responsive Rows with Focus Transitions */
+    /* Alternating Responsive Rows */
     .feature-row {
       display: flex;
       flex-direction: column;
@@ -197,7 +195,6 @@
       will-change: transform, opacity;
     }
 
-    /* Active Focused Row State */
     .feature-row.active-focus {
       opacity: 1;
       transform: scale(1.02);
@@ -211,16 +208,23 @@
       .feature-row.reverse {
         flex-direction: row-reverse;
       }
+
+      /* Allocate dominant ratio to the media container for wider maps */
+      .feature-media {
+        flex: 1.8;
+      }
+      
+      .feature-text {
+        flex: 1;
+      }
     }
 
     .feature-media {
-      flex: 1;
       width: 100%;
       min-width: 0;
     }
 
     .feature-text {
-      flex: 1;
       width: 100%;
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -230,7 +234,6 @@
       transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    /* Highlight card boundary on scroll focus */
     .feature-row.active-focus .feature-text {
       border-color: var(--accent);
       box-shadow: var(--shadow-focus);
@@ -249,11 +252,13 @@
       line-height: 1.8;
     }
 
-    /* Fluid Responsive Carousel */
+    /* Taller & Wider Carousel Container */
     .carousel-container {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      /* Tall 3:4 portrait aspect ratio */
+      aspect-ratio: 3 / 4;
+      max-height: 680px;
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--border);
@@ -277,56 +282,57 @@
       min-width: 100%;
       height: 100%;
       object-fit: contain;
+      object-position: center center;
       background-color: #0d1410;
     }
 
-    /* Carousel Buttons & Indicators */
+    /* Controls */
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       color: var(--text-main);
       border: none;
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       cursor: pointer;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       transition: all 0.2s ease;
     }
 
     .carousel-btn:hover {
       background: #ffffff;
-      transform: translateY(-50%) scale(1.08);
+      transform: translateY(-50%) scale(1.1);
     }
 
-    .carousel-btn.prev { left: 16px; }
-    .carousel-btn.next { right: 16px; }
+    .carousel-btn.prev { left: 18px; }
+    .carousel-btn.next { right: 18px; }
 
     .carousel-dots {
       position: absolute;
-      bottom: 14px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 8px;
       z-index: 10;
-      background: rgba(0, 0, 0, 0.35);
-      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 14px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
     }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.5);
       transition: all 0.2s ease;
@@ -355,7 +361,7 @@
       <a href="#" class="nav-logo">Professional Portfolio</a>
       <ul class="nav-links">
         <li><a href="#showcase">Project Breakdown</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a>Artistic Portfolio - Coming Soon</a></li>
       </ul>
     </div>
   </nav>
@@ -365,7 +371,7 @@
     <!-- Header Section -->
     <header class="intro-section" id="about">
       <div class="headshot-container">
-        <img src="https://via.placeholder.com/160/dbebe2/1e4d35?text=Claudia" alt="Claudia Leung Headshot" class="headshot" />
+        <img src="headshot.JPG" alt="Claudia Leung Headshot" class="headshot" />
       </div>
       
       <div class="intro-content">
@@ -377,7 +383,7 @@
           Claudia graduated from the University of Calgary with a Bachelor of Science, and her interest in data and visualization has only grown since. Early in her environmental career, she's already had the chance to apply what she learned in school — and she continues to build on that experience in her consulting work. She's always eager to pick up new skills, whether for her job or just for herself. Outside of work, she unwinds with a good book, some drawing, or painting. And when the weather's nice, she'll trade her pencils for a tennis racket or hiking boots.
         </p>
         <div class="intro-links">
-          <a href="https://www.linkedin.com/in/-claudia-leung/" target="_blank" rel="noopener">LinkedIn Profile &rarr;</a>
+          <a href="https://www.linkedin.com/in/-claudia-leung/" target="_blank" rel="noopener">LinkedIn Profile &rrarr;</a>
         </div>
       </div>
     </header>
@@ -399,10 +405,15 @@
         <div class="carousel-container" id="carousel-1">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-1', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="Claudia to add here" alt="Raw Parcels Map" />
-            <img class="carousel-slide" src="" alt="CRS Transformation" />
-            <img class="carousel-slide" src="" alt="Filtered Polygons" />
-          </div>
+            <img class="carousel-slide" src="1.1calgcommservices.png" alt="Raw Parcels Map" />
+            <img class="carousel-slide" src="1.campus commute.png" alt="CRS Transformation" />
+            <img class="carousel-slide" src="1.AB temp.png" alt="Filtered Polygons" />
+            <img class="carousel-slide" src="1.calgpop.png" alt="Filtered Polygons" />
+            <img class="carousel-slide" src="1.whales1.png" alt="Filtered Polygons" />
+            <img class="carousel-slide" src="1.whales2.png" alt="Filtered Polygons" />
+            <img class="carousel-slide" src="1.last.png" alt="Filtered Polygons" />
+
+        </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-1', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
         </div>
@@ -422,8 +433,9 @@
         <div class="carousel-container" id="carousel-2">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-2', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="builidng%20and%20LRT%20Line.png" alt="Buildings and LRT Line Buffer Zones" />
-            <img class="carousel-slide" src="city%20parks.png" alt="Calgary City Parks Spatial Map" />
+            <img class="carousel-slide" src="UBSR zoning.png" alt="Buildings and LRT Line Buffer Zones" />
+            <img class="carousel-slide" src="transit.png" alt="Buildings and LRT Line Buffer Zones" />
+            <img class="carousel-slide" src="fish creek.png" alt="Calgary City Parks Spatial Map" />
           </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-2', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
@@ -448,7 +460,8 @@
             <img class="carousel-slide" src="verkka%201960.png" alt="Verkka Valley Land Use 1960" />
             <img class="carousel-slide" src="verkka%202016.png" alt="Verkka Valley Land Use 2016" />
             <img class="carousel-slide" src="verkka%20soil.png" alt="Verkka Valley Soil Classification" />
-          </div>
+            <img class="carousel-slide" src="verkka element.png" alt="Verkka Valley Soil Classification" />
+        </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-3', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
         </div>
@@ -468,8 +481,11 @@
         <div class="carousel-container" id="carousel-4">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-4', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="" alt="Floodplain Symbology Map" />
-            <img class="carousel-slide" src="" alt="Final Print Layout" />
+            <img class="carousel-slide" src="4.nat veg field1.png" alt="Floodplain Symbology Map" />
+            <img class="carousel-slide" src="4.citypark field1.png" alt="" />
+            <img class="carousel-slide" src="4.forested field1.png" alt="" />
+            <img class="carousel-slide" src="builidng and LRT Line.png" alt="" />
+            <img class="carousel-slide" src="highwayroad LRT.png" alt="" />
           </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-4', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
@@ -490,8 +506,10 @@
         <div class="carousel-container" id="carousel-5">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-5', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="" alt="Panorama Hills Overview" />
-            <img class="carousel-slide" src="" alt="Infrastructure Distribution" />
+            <img class="carousel-slide" src="Nat veg.png" alt="Aquatic Biodiversity Map" />
+            <img class="carousel-slide" src="city parks.png" alt="Riparian Health Index" />
+            <img class="carousel-slide" src="urban trees.png" alt="Riparian Health Index" />
+            <img class="carousel-slide" src="manicured.png" alt="Riparian Health Index" />
           </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-5', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
@@ -512,8 +530,9 @@
         <div class="carousel-container" id="carousel-6">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-6', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="" alt="Aquatic Biodiversity Map" />
-            <img class="carousel-slide" src="" alt="Riparian Health Index" />
+            <img class="carousel-slide" src="6.study area 502.png" alt="Riparian Health Index" />
+            <img class="carousel-slide" src="6. 502-2.png" alt="Aquatic Biodiversity Map" />
+            <img class="carousel-slide" src="6. 502-3.png" alt="Riparian Health Index" />
           </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-6', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
@@ -534,8 +553,7 @@
         <div class="carousel-container" id="carousel-7">
           <button class="carousel-btn prev" onclick="moveCarousel('carousel-7', -1)" aria-label="Previous slide">&lsaquo;</button>
           <div class="carousel-track">
-            <img class="carousel-slide" src="" alt="Europe Backpacking Train Route Map" />
-            <img class="carousel-slide" src="" alt="Travel Postcard Layout" />
+            <img class="carousel-slide" src="EU trip.png" alt="Europe Backpacking Train Route Map" />
           </div>
           <button class="carousel-btn next" onclick="moveCarousel('carousel-7', 1)" aria-label="Next slide">&rsaquo;</button>
           <div class="carousel-dots"></div>
@@ -596,7 +614,6 @@
     /* Scroll Focus Observer */
     const observerOptions = {
       root: null,
-      /* Focus activation zone: center 60% of viewport */
       rootMargin: '-20% 0px -20% 0px',
       threshold: 0.2
     };
